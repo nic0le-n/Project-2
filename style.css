@@ -1,0 +1,119 @@
+body{
+    margin:0px;
+    padding:0px;
+    color:#FAFAFA;
+}
+
+/* Set up the grid layout on the container */
+.landing-page {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* 12 equal columns */
+    grid-template-rows: repeat(6, 1fr); /* Let rows be as tall as needed */
+    position: relative; /* Position relative for absolute positioning of house-click */
+}
+
+/* Make the .house-img span across all 12 columns */
+.house-img {
+    grid-column: span 12; /* .house-img takes up the whole width of the grid */
+    grid-row:span 6;
+    position: relative;
+}
+
+.house-img img {
+    width: 100vw; /* Image takes up full viewport width */
+    height: auto;
+    object-fit: cover; /* Optional: Ensures the image covers the area */
+    z-index: 1;
+}
+
+/* Position the .house-click in the 3rd row, 5th column */
+.house-click {
+    grid-row: 4;
+    grid-column: 11;
+    position: absolute; /* Position it over the image */
+    color: white; /* Color of the text (optional) */
+    font-size: 2rem; /* Size of the text (optional) */
+    padding: 10px; /* Padding around the text */
+}
+
+.house-click img{
+    height:150px;
+    width:50px;
+    opacity: 0;
+    z-index: 5;
+}
+
+.house-click:hover{
+    filter: blur(5px);
+    background: radial-gradient(circle, rgba(255,255,0,1) 0%, rgba(255,255,0,0) 100%);
+}
+
+
+.text-sentence{
+    background-color:#FBFF00;
+    margin:0px;
+    padding:0px;
+    height:25vh;
+    width: 100vw;
+    display: flex; /* Enable Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    gap: 25px;
+}
+
+.text-sentence h1{
+    margin: 0px;
+    padding:0px;
+}
+
+.text-edit:hover h1{
+    color: rgb(188, 224, 223);
+    transition: color .5s;
+}
+
+h1{
+    color:#FAFAFA;
+    font-family: "sigurd", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 10vw;
+    text-align: justify;
+}
+
+.first-pic{
+    height:75vh;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.first-pic img{
+    height: 200px;
+    width:auto;
+}
+
+  
+  .hover-box {
+    position: absolute;
+    display: none;
+    padding: 10px;
+    color:rgb(188, 224, 223);
+    font-size: 14px;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  
+  .hover-box-img {
+    position: absolute;
+    display: none;
+    padding: 10px;
+    font-size: 14px;
+    border:solid 1px;
+    border-color:yellow;
+    color: yellow;
+    background-color: #414141;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 10;
+  }
