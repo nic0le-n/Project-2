@@ -6,8 +6,6 @@ body{
 .section1{
     background-color: #FAFAFA;
     height:96vh;
-    font-family: "bakemono-variable", sans-serif;
-    font-variation-settings: "MONO" 0, "wght" 400;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
@@ -21,6 +19,39 @@ body{
     justify-content: center;
     align-items: flex-end;
 }
+
+
+.s1-p1 .bird-img {
+    position: absolute;
+    top: 10%;
+    left: 85%;
+    transform: translate(-50%, -50%); /* Center the image */
+    width: 100px; /* Adjust size of the bird image */
+    height: auto;
+    opacity: 0; /* Make it invisible by default */
+    transition: opacity 0.3s ease; /* Fade-in effect */
+}
+
+/* Animation when hovering over s1-p1 */
+.s1-p1.clicked .bird-img {
+    opacity: 1; /* Make the bird visible */
+    animation: moveLeft 4s forwards ease-in; /* Trigger the move left animation with easing */
+}
+
+/* Keyframes to move the image off to the left */
+@keyframes moveLeft {
+    0% {
+        left: 85%;
+        opacity: 1;
+    }
+    100% {
+        left: -200px; /* Move the bird off the viewport */
+        opacity: 1; /* Fade out the bird once it leaves */
+    }
+}
+
+
+
 .s1-p2{
     display: flex;
     grid-column-start: 2;
@@ -44,6 +75,11 @@ body{
 h1{
     font-family: "sigurd", sans-serif;
     font-weight: 300;
-    font-weight: bold;
+    font-style:normal;
     margin-bottom: 5px;
+}
+
+p:hover,
+h1:hover{
+    font-style: italic;
 }
