@@ -1,19 +1,23 @@
-body{
+html {
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+}
+
+body {
     margin: 0px;
     background-color: #353643;
 }
 
-#section1{
+#section1 {
     background-color: #fafafa;
-    margin-left:6vw;
+    margin-left: 6vw;
     margin-right: 6vw;
-    height:96vh;
+    height: 96vh;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
-    margin-bottom: 15px;
-    overflow: hidden; /* This hides any content that overflows the bounds of #section1 */
-    position: relative; /* Ensure child elements with absolute positioning are contained */
+    margin-bottom: 30px;
+    overflow: hidden;
+    position: relative; /* Added to ensure overlay stays within this section */
 }
 
 /* When .gradient-background class is added, change to radial-gradient */
@@ -21,218 +25,303 @@ body{
     background: radial-gradient(circle, rgb(1, 208, 255), rgb(236, 255, 255));
 }
 
-.s1-p1{
+.s1-p1 {
     display: flex;
     grid-column-start: 10;
     grid-column-end: span 3;
     grid-row-start: 3;
     justify-content: center;
     align-items: flex-start;
-    z-index:5;
+    z-index: 5;
 }
-
 
 .s1-p1 .bird-img {
     position: absolute;
     top: 18%;
     left: 85%;
-    transform: translate(-50%, -50%); /* Center the image */
-    width: 200px; /* Adjust size of the bird image */
+    transform: translate(-50%, -50%);
+    width: 200px;
     height: auto;
-    opacity: 0; /* Make it invisible by default */
-    transition: opacity 0.3s ease; /* Fade-in effect */
-    z-index:-1;
-    clip-path: inset(0 0 0 0); /* Ensure it’s clipped within its parent div */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    clip-path: inset(0 0 0 0);
 }
 
 .s1-p1:hover .bird-img {
-    opacity: 1; 
+    opacity: 1;
 }
 
-/* Animation when hovering over s1-p1 */
 .s1-p1.clicked .bird-img {
-    opacity: 1; /* Make the bird visible */
+    opacity: 1;
     animation: moveLeft 4s forwards ease-in;
-    z-index:-1;
-
+    z-index: -1;
 }
 
-/* Keyframes to move the image off to the left */
 @keyframes moveLeft {
     0% {
         left: 85%;
         opacity: 1;
     }
     100% {
-        left: -200px; /* Move the bird off the viewport */
-        opacity: 1; /* Fade out the bird once it leaves */
+        left: -200px;
+        opacity: 1;
     }
 }
 
-
-.s1-p2{
+.s1-p2 {
     display: flex;
     grid-column-start: 1;
     grid-column-end: span 3;
     grid-row-start: 7;
     align-items: flex-start;
     padding-left: 4vw;
-    z-index:5;
+    z-index: 5;
 }
 
-.s1-p2 .tree-img{
+.s1-p2 .tree-img {
     position: absolute;
     bottom: 15%;
     left: 1%;
     width: auto;
     height: 200px;
-    opacity: 0; /* Make it invisible by default */
-    transition: opacity 0.3s ease; /* Fade-in effect */
-    z-index:5;
-    clip-path: inset(0 0 0 0); /* Ensure it’s clipped within its parent div */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 5;
+    clip-path: inset(0 0 0 0);
 }
 
-.s1-p2.clicked .tree-img{
-    opacity: 1; 
+.s1-p2.clicked .tree-img {
+    opacity: 1;
     z-index: 10;
-    transition: opacity 0.5s ease-in-out; /* Smooth opacity transition */
+    transition: opacity 0.5s ease-in-out;
 }
 
-.s1-p3{
+.s1-p3 {
     display: flex;
     grid-column-start: 9;
     grid-column-end: span 3;
     grid-row-start: 10;
     align-items: flex-end;
-    z-index:5;
+    z-index: 5;
 }
 
 .s1-p3 .run-img {
     position: absolute;
     bottom: -50px;
     left: -50px;
-    transform: translate(-50%, -50%); /* Center the image */
-    width: 200px; /* Adjust size of the bird image */
+    transform: translate(-50%, -50%);
+    width: 200px;
     height: auto;
-    opacity: 0; /* Make it invisible by default */
-    transition: opacity 0.3s ease; /* Fade-in effect */
+    opacity: 0;
+    transition: opacity 0.3s ease;
     z-index: 11;
-    clip-path: inset(0 0 0 0); /* Ensure it’s clipped within its parent div */
+    clip-path: inset(0 0 0 0);
 }
 
-/* Animation when hovering over s1-p1 */
 .s1-p3.clicked .run-img {
-    opacity: 1; /* Make the bird visible */
+    opacity: 1;
     animation: moveRight 5s forwards ease-in-out;
 }
 
-/* Keyframes to move the image off to the left */
 @keyframes moveRight {
     0% {
         left: -50px;
         opacity: 1;
     }
     100% {
-        left: 150%; /* Move the bird off the viewport */
-        opacity: 1; /* Fade out the bird once it leaves */
+        left: 150%;
+        opacity: 1;
     }
 }
 
+.s1-p4 {
+    display: flex;
+    grid-column-start: 4;
+    grid-column-end: span 3;
+    grid-row-start: 7;
+    padding-left:2vw;
+    justify-content: flex-end;
+    z-index: 5;
+    color: #fafafa;
+}
 
-.s1-h1{
-    grid-column-start: span 12;
+.s1-h1 {
+    grid-column-start: span 8;
     grid-row-start: 12;
     padding-left: 1vw;
     padding-bottom: 10px;
     height: 60px;
     display: flex;
     align-items: center;
-    z-index:5;
-
+    z-index: 5;
 }
 
-h1{
+h1 {
     font-family: "sigurd", sans-serif;
     font-weight: 300;
-    font-style:normal;
+    font-style: normal;
     margin-bottom: 5px;
     color: #353643;
 }
 
 p:hover,
-a:hover{
+a:hover {
     font-style: italic;
-    z-index:5;
+    z-index: 5;
 }
 
-
-
-#section2{
-    background-image: url(IMG/section2bg.png);
-    height:98vh;
+#section2 {
+    position: relative;
+    height: 98vh;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
+    overflow: hidden; /* To prevent background images from overflowing */
 }
+
+/* These are the background divs that will be cross-faded */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; /* Initially hide both backgrounds */
+    transition: opacity 1s ease-in-out; /* Cross-fade transition */
+    z-index: -1; /* So they stay behind other content */
+}
+
+#bg1 {
+    background-image: url('IMG/section2bg.png'); /* Initial background image */
+}
+
+#bg2 {
+    background-image: url('IMG/sunset.png'); /* Second background image */
+}
+
+/* Optional: You can use a class to control which background is shown */
+.background.active {
+    opacity: 1; /* Make the active background visible */
+}
+
 
 .s2-h1 {
-grid-column-start: span 12;
-grid-row-start: 12;
-padding-left: 7vw;
-padding-bottom: 4vw;
-height: 60px;
-display: flex;
-align-items: center;
-z-index:5;
+    grid-column-start: span 12;
+    grid-row-start: 12;
+    padding-left: 7vw;
+    padding-bottom: 3.5vw;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    z-index: 15;
 }
 
-.s2-h1 h1{
+.s2-h1 h1 {
     color: #fafafa;
 }
 
-.s2-h1 h1:hover{
+.s2-h1 h1:hover {
     background-color: #fafafa;
     color: #353643;
 }
 
-#section2 p{
+#section2 p {
     color: #fafafa;
     margin: 0px;
+    position: relative;
 }
 
-.s2-p1{
+.s2-p1 {
     display: flex;
     grid-column-start: 10;
     grid-column-end: span 3;
     grid-row-start: 2;
     align-items: flex-end;
-    margin-bottom: -8px;
-    z-index:5;
+    margin-bottom: -23px;
+    z-index: 5;
 }
 
-.s2-p2{
+.s2-p2 {
     display: flex;
     grid-column-start: 2;
     grid-column-end: span 3;
     grid-row-start: 5;
     align-items: flex-end;
-    margin-bottom: 16px;
-    z-index:5;
+    margin-bottom: -32px;
+    padding-left: 1vw;
+    z-index: 5;
 }
 
-.s2-p3{
+.s2-p3 {
     display: flex;
     grid-column-start: 7;
     grid-column-end: span 3;
     grid-row-start: 9;
     align-items: flex-end;
-    margin-bottom: 9px;
-    z-index:5;
+    margin-bottom: 16px;
+    z-index: 5;
 }
 
-.frame img{
+.frame img {
     position: fixed;
-    z-index:2;
+    z-index: 2;
     width: 100vw;
-    height:100vh;
+    height: 100vh;
 }
+
+
+.whole-thing{
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: nowrap;
+}
+
+
+.dot {
+    display: flex;
+    grid-column-start: 12;
+    grid-row-start: 12;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 5;
+}
+
+.dot img{
+    height: 40px;
+    width: 40px;
+}
+
+.dot:hover{
+    filter: blur(5px);
+}
+
+
+.hover-box {
+    position: absolute;
+    display: none;
+    padding: 10px;
+    font-size: 14px;
+    border:solid 1px;
+    border-color:yellow;
+    color: yellow;
+    background-color: #414141;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 10;
+  }
+
+.hover-box-img {
+    position: absolute;
+    display: none;
+    padding: 10px;
+    border:solid 1px;
+    border-color:rgb(188, 224, 223);
+    color:rgb(188, 224, 223);
+    background-color: #414141;
+    font-size: 14px;
+    pointer-events: none;
+    white-space: nowrap;
+  }
