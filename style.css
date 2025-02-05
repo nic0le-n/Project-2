@@ -56,6 +56,7 @@ body{
     height:25vh;
     width: 100vw;
     display: flex; /* Enable Flexbox */
+    flex-wrap: nowrap;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     gap: 25px;
@@ -66,13 +67,27 @@ body{
     padding:0px;
 }
 
+.text-nonedit{
+    flex: 0 0 auto; /* Prevent .text-edit from growing or shrinking */
+}
+
+.text-edit{
+    display: inline-block; /* Ensure text-edit behaves as an inline block */
+    white-space: nowrap; /* Prevent wrapping of text */
+    overflow-x: visible; /* Allow horizontal overflow */
+    overflow-y: hidden; /* Hide vertical overflow */
+    width: auto; /* Allow width to grow infinitely */
+    flex: 0 0 auto; /* Prevent .text-edit from growing or shrinking */
+}
+
+
 .text-edit:hover h1{
     color: rgb(188, 224, 223);
     transition: color .5s;
 }
 
 h1{
-    color:#FAFAFA;
+    color:rgb(188, 224, 223);
     font-family: "sigurd", sans-serif;
     font-weight: 300;
     font-style: italic;
@@ -97,7 +112,10 @@ h1{
     position: absolute;
     display: none;
     padding: 10px;
+    border:solid 1px;
+    border-color:rgb(188, 224, 223);
     color:rgb(188, 224, 223);
+    background-color: #414141;
     font-size: 14px;
     pointer-events: none;
     white-space: nowrap;
@@ -105,6 +123,20 @@ h1{
 
   
   .hover-box-img {
+    position: absolute;
+    display: none;
+    padding: 10px;
+    font-size: 14px;
+    border:solid 1px;
+    border-color:yellow;
+    color: yellow;
+    background-color: #414141;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 10;
+  }
+
+  .hover-box-window {
     position: absolute;
     display: none;
     padding: 10px;
