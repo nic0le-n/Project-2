@@ -234,6 +234,10 @@ a:hover {
     position: relative;
 }
 
+#section2 p:hover {
+    background-color: #353643;
+}
+
 .s2-p1 {
     display: flex;
     grid-column-start: 10;
